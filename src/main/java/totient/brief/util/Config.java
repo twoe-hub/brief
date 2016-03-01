@@ -6,10 +6,12 @@ public enum Config {
   CONF;
   
   private final ResourceBundle props = ResourceBundle.getBundle("config");
+  private final String HTTP_SERVER = "http.server";
   private final String REDIS_SERVER = "redis.server";
+  private final String HTTP_PORT = "http.port";
   private final String REDIS_PORT = "redis.port";
   private final String REDIS_DB = "redis.db";
-  private final String BRIEF_HTTP_DOMAIN = "brief.http.domain";
+  private final String APP_NAME = "app.name";
   
   public String getServer() {
     return props.getString(REDIS_SERVER);
@@ -24,7 +26,9 @@ public enum Config {
   }
 
   public String getBriefDomain() {
-    return props.getString(BRIEF_HTTP_DOMAIN);
+    return "http://" + props.getString(HTTP_SERVER)
+            + ":" + props.getString(HTTP_PORT)
+            + "/" + props.getString(APP_NAME) + "/";
   }
 
 }
