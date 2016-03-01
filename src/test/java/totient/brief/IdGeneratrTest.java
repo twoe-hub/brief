@@ -6,11 +6,13 @@ import java.time.Instant;
 import java.util.ArrayList;
 import java.util.List;
 import org.junit.Assert;
+import org.junit.Ignore;
 import org.junit.Test;
 import static totient.brief.IdGeneratr.ID_GEN;
 
 public class IdGeneratrTest {
 
+  @Ignore // Takes a lot of memory and time
   @Test
   public void testGenerateId() throws NoSuchAlgorithmException {
     Instant start = Instant.now();

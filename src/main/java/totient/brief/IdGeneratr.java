@@ -42,10 +42,10 @@ public enum IdGeneratr {
       exponent++;
     }
 
-    return reverse(abbreviate(seq));
+    return reverse(shorten(seq));
   }
 
-  private List<Character> abbreviate(List<Character> seq) {
+  private List<Character> shorten(List<Character> seq) {
     Random rand = ThreadLocalRandom.current();
     int n;
     int[] inds = new int[3];
