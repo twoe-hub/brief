@@ -1,5 +1,6 @@
-package totient.brief;
+package totient.brief.store;
 
+import totient.brief.store.UrlStore;
 import org.junit.Test;
 import static org.junit.Assert.*;
 

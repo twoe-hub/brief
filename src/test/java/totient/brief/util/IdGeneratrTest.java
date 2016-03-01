@@ -1,4 +1,4 @@
-package totient.brief;
+package totient.brief.util;
 
 import java.security.NoSuchAlgorithmException;
 import java.time.Duration;
@@ -8,7 +8,7 @@ import java.util.List;
 import org.junit.Assert;
 import org.junit.Ignore;
 import org.junit.Test;
-import static totient.brief.IdGeneratr.ID_GEN;
+import static totient.brief.util.IdGeneratr.ID_GEN;
 
 public class IdGeneratrTest {
 
