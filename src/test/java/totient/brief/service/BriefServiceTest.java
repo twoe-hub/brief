@@ -1,7 +1,6 @@
 package totient.brief.service;
 
 import totient.brief.store.UrlStore;
-import totient.brief.service.BriefService;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -15,8 +14,7 @@ public class BriefServiceTest {
     store.flush();
     String url = "http://ymail.com";
     String abbr = service.abbreviate(url);
-    String id = abbr.substring(abbr.lastIndexOf("/")+1, abbr.length());
-    System.out.println("id, " + id);
-    assertEquals(url, service.retrieve(id));
+    String key = abbr.substring(abbr.lastIndexOf("/")+1, abbr.length());
+    assertEquals(url, service.retrieve(key));
   }
 }

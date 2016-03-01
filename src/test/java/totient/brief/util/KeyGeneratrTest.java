@@ -8,23 +8,23 @@ import java.util.List;
 import org.junit.Assert;
 import org.junit.Ignore;
 import org.junit.Test;
-import static totient.brief.util.IdGeneratr.ID_GEN;
+import static totient.brief.util.KeyGeneratr.KEY_GEN;
 
-public class IdGeneratrTest {
+public class KeyGeneratrTest {
 
   @Ignore // Takes a lot of memory and time
   @Test
-  public void testGenerateId() throws NoSuchAlgorithmException {
+  public void testGenerateKey() throws NoSuchAlgorithmException {
     Instant start = Instant.now();
-    List<String> ids = new ArrayList<>();
+    List<String> keys = new ArrayList<>();
     for (int i = 0; i < 100000; i++) {
-      String s = ID_GEN.generateId();
-      if (ids.contains(s)) {
+      String s = KEY_GEN.generateKey();
+      if (keys.contains(s)) {
         Assert.fail("Duplicate generated");
       } else if(s.length() > 8) {
         Assert.fail("Too large");
       } else {
-        ids.add(s);
+        keys.add(s);
       }
     }
     
