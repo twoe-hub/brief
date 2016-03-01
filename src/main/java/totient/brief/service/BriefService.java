@@ -23,7 +23,7 @@ public class BriefService {
     }while(exists);
     
     store.set(key, url);
-    return CONF.getBriefDomain()+key;
+    return CONF.getHttpAddr()+key;
   }
   
   public String retrieve(String key) {

@@ -10,8 +10,9 @@ public class UrlStore {
   private final Jedis jedis;
     
   private UrlStore() {
-    jedis = new Jedis(CONF.getServer(), 
-            CONF.getPort());
+//    jedis = new Jedis(CONF.getRedisServer(), 
+//            CONF.getRedisPort());
+    jedis = new Jedis(CONF.getRedisUri());
     jedis.select(CONF.getDB());
   }
     
