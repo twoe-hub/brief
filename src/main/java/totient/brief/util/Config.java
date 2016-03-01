@@ -1,4 +1,4 @@
-package totient.brief;
+package totient.brief.util;
 
 import java.util.ResourceBundle;
 

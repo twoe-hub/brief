@@ -1,11 +1,11 @@
-package totient.brief;
+package totient.brief.store;
 
 import redis.clients.jedis.Jedis;
-import static totient.brief.Config.CONF;
+import static totient.brief.util.Config.CONF;
 
 public class UrlStore {
 
-  final static UrlStore INSTANCE = new UrlStore();
+  public final static UrlStore INSTANCE = new UrlStore();
   
   private final Jedis jedis;
     
@@ -15,15 +15,15 @@ public class UrlStore {
     jedis.select(CONF.getDB());
   }
     
-  void set(String key, String url) {
+  public void set(String key, String url) {
     jedis.set(key, url);
   }
   
-  String get(String key) {
+  public String get(String key) {
     return jedis.get(key);
   }
   
-  void flush() {
+  public void flush() {
     jedis.flushDB();
   }
   

@@ -1,7 +1,8 @@
-package totient.brief;
+package totient.brief.service;
 
-import static totient.brief.IdGeneratr.ID_GEN;
-import static totient.brief.Config.CONF;
+import totient.brief.store.UrlStore;
+import static totient.brief.util.IdGeneratr.ID_GEN;
+import static totient.brief.util.Config.CONF;
 
 public class BriefService {
 
