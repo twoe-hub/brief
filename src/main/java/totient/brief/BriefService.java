@@ -1,12 +1,13 @@
 package totient.brief;
 
 import static totient.brief.IdGeneratr.ID_GEN;
-        
+import static totient.brief.Config.CONF;
+
 public class BriefService {
 
-  final static BriefService INSTANCE = new BriefService();
-  final UrlStore store = UrlStore.INSTANCE;
-
+  final static BriefService INSTANCE = new BriefService();  
+  private final UrlStore store = UrlStore.INSTANCE;
+  
   private BriefService() {
   }
   
@@ -17,11 +18,11 @@ public class BriefService {
     do {
       id = ID_GEN.generateId();
       String value = store.get(id);
-      exists = value.equals(url);
+      exists = url.equals(value);
     }while(exists);
     
     store.set(id, url);
-    return "http://bri.ef/"+id;
+    return CONF.getBriefDomain()+id;
   }
   
   String retrieve(String key) {

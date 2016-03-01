@@ -1,15 +1,18 @@
 package totient.brief;
 
 import redis.clients.jedis.Jedis;
+import static totient.brief.Config.CONF;
 
 public class UrlStore {
 
   final static UrlStore INSTANCE = new UrlStore();
-  private final Jedis jedis;
   
+  private final Jedis jedis;
+    
   private UrlStore() {
-    jedis = new Jedis("localhost", 6379);
-    jedis.select(1);
+    jedis = new Jedis(CONF.getServer(), 
+            CONF.getPort());
+    jedis.select(CONF.getDB());
   }
     
   void set(String key, String url) {
@@ -25,7 +28,7 @@ public class UrlStore {
   }
   
   boolean isEmpty() {
-    return jedis.keys("*").isEmpty();  
+    return jedis.keys("t*").isEmpty();  
   }
   
 }
