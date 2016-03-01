@@ -1,0 +1,42 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-4.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+
+  <head>
+    <title>Welcome to Brief!</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" type="text/css" media="all" href="../../css/brief.css" th:href="@{/css/brief.css}" />
+  </head>
+
+  <body>
+
+    <h2>Welcome to Brief!</h2>
+    <br/>
+    <p>The application is meant to provide you a shorter URL.</p>
+
+    <br/>
+    <br/>
+
+    <p>Please your URL below</p>
+    <form action="abbr" method="POST">
+      <p>
+        <input type="text" id="user_url" name="user_url" size="50" maxlength="256"/> &nbsp; &nbsp;
+        <input type="submit" id="abbr" name="abbr" value="Abbreviate"/>
+      </p>
+    </form>
+    <br/>
+    <br/>
+
+    <div id="abbreviation">
+    </div>
+    
+    <div th:include="footer::copy">&copy; 2016 Brief</div>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+
+  </body>
+
+</html>
