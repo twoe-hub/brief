@@ -6,13 +6,13 @@ import static totient.brief.util.Config.CONF;
 
 public class BriefService {
 
-  final static BriefService INSTANCE = new BriefService();  
+  public final static BriefService INSTANCE = new BriefService();  
   private final UrlStore store = UrlStore.INSTANCE;
   
   private BriefService() {
   }
   
-  String abbreviate(final String url) {
+  public String abbreviate(final String url) {
     boolean exists;
     String id;
 
@@ -26,7 +26,7 @@ public class BriefService {
     return CONF.getBriefDomain()+id;
   }
   
-  String retrieve(String key) {
+  public String retrieve(String key) {
     return store.get(key);
   }
 }

@@ -53,6 +53,10 @@ public class GenericFilter implements Filter {
     }
 
     Controller controller = appConfig.resolveControllerForRequest(request);
+    if(controller == null) {
+      return false;
+    }
+    
     TemplateEngine templateEngine = appConfig.getTemplateEngine();
     setResponseDefaults(response);
 

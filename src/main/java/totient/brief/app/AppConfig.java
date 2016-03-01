@@ -1,7 +1,9 @@
 package totient.brief.app;
 
+import totient.brief.controller.Abbreviatr;
 import totient.brief.controller.Controller;
 import totient.brief.controller.HeadController;
+import totient.brief.controller.Retrievr;
 import java.util.HashMap;
 import java.util.Map;
 import javax.servlet.ServletContext;
@@ -14,6 +16,7 @@ public class AppConfig {
 
   private final TemplateEngine templateEngine;
   private final Map<String, Controller> controllerMap;
+  private final String default_key = ":default";
   private static AppConfig appConfig;
 
   public static AppConfig getInstance(ServletContext context) {
@@ -39,11 +42,21 @@ public class AppConfig {
 
     this.controllerMap = new HashMap<>();
     this.controllerMap.put("/", new HeadController());
+    this.controllerMap.put("/abbr", new Abbreviatr());
+    this.controllerMap.put(default_key, new Retrievr());
+
   }
 
   public Controller resolveControllerForRequest(final HttpServletRequest request) {
     final String path = getRequestPath(request);
-    return this.controllerMap.get(path);
+    
+    Controller ctrlr = this.controllerMap.get(path);
+    if (ctrlr != null)
+      return ctrlr;
+    
+    String uri = request.getRequestURI();
+    String key = uri.substring(uri.lastIndexOf("/")+1, uri.length());
+    return key.startsWith("_") ? this.controllerMap.get(default_key) : null;
   }
 
   public TemplateEngine getTemplateEngine() {

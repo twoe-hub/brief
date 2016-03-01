@@ -14,7 +14,7 @@ public class HeadController implements Controller {
   public void process(final HttpServletRequest request, final HttpServletResponse response,
           final ServletContext servletContext, final TemplateEngine templateEngine)
           throws Exception {
-
+    
     WebContext ctx = new WebContext(request, response, servletContext, request.getLocale());
     templateEngine.process("index", ctx, response.getWriter());
   }
