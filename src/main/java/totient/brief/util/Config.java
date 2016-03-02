@@ -10,6 +10,7 @@ public enum Config {
   private final String REDIS_SERVER = "redis.server";
   private final String REDIS_PORT = "redis.port";
   private final String REDIS_DB = "redis.db";
+  private final String REDIS_PWD = "redis.pwd";
   private final String HTTPS_ADDR = "https.addr";
   
   public String getRedisServer() {
@@ -20,16 +21,20 @@ public enum Config {
     return Integer.parseInt(props.getString(REDIS_PORT));
   }
 
-  public int getDB() {
-    return Integer.parseInt(props.getString(REDIS_DB));
+  public String getRedisPassword() {
+    return props.getString(REDIS_PWD);
   }
 
-  public String getHttpAddr() {
-    return props.getString(HTTPS_ADDR);
+  public int getRedisDB() {
+    return Integer.parseInt(props.getString(REDIS_DB));
   }
 
   public String getRedisUri() {
     return props.getString(REDIS_URI);
+  }
+
+  public String getHttpAddr() {
+    return props.getString(HTTPS_ADDR);
   }
 
 }

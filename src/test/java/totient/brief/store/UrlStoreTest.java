@@ -1,12 +1,12 @@
 package totient.brief.store;
 
-import totient.brief.store.UrlStore;
 import org.junit.Test;
+import static totient.brief.store.UrlStore.*;
 import static org.junit.Assert.*;
 
 public class UrlStoreTest {
  
-  private final UrlStore store = UrlStore.INSTANCE;
+  private final UrlStore store = URL_STORE;
   
   @Test
   public void testSetGet() {

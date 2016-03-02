@@ -1,34 +1,32 @@
 package totient.brief.store;
 
 import redis.clients.jedis.Jedis;
-import static totient.brief.util.Config.CONF;
+import static totient.brief.store.JedisFactory.*;
 
-public class UrlStore {
+public enum UrlStore {
+  URL_STORE;
+ 
 
-  public final static UrlStore INSTANCE = new UrlStore();
-  
-  private final Jedis jedis;
-    
   private UrlStore() {
-//    jedis = new Jedis(CONF.getRedisServer(), 
-//            CONF.getRedisPort());
-    jedis = new Jedis(CONF.getRedisUri());
-    jedis.select(CONF.getDB());
   }
     
   public void set(String key, String url) {
+    Jedis jedis = JEDIS_FACTORY.getJedis();
     jedis.set(key, url);
   }
   
   public String get(String key) {
+    Jedis jedis = JEDIS_FACTORY.getJedis();
     return jedis.get(key);
   }
   
   public void flush() {
+    Jedis jedis = JEDIS_FACTORY.getJedis();
     jedis.flushDB();
   }
   
   boolean isEmpty() {
+    Jedis jedis = JEDIS_FACTORY.getJedis();
     return jedis.keys("t*").isEmpty();  
   }
   
