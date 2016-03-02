@@ -15,8 +15,7 @@
       $(document).ready(function() {
         $("#abbr").click(function(event) {
           $.ajax({url: "abbr?user_url=" + $("#user_url").val(), success: function (result) {
-              $("#abbr-link").html(result);
-              $("#abbr-link").attr("href",result);
+              $("#abbr_url").attr("value",result);
             }});
         });
       });
@@ -28,28 +27,21 @@
     <h2>Welcome to Brief!</h2>
     <br/>
     <p>The application is meant to provide you a shorter URL.</p>
-
     <br/>
     <br/>
-
-    <p>Please your URL below.</p>
     <p>
-      <input type="text" id="user_url" name="user_url" size="50" maxlength="256"/> &nbsp; &nbsp;
-      <input type="submit" id="abbr" name="abbr" value="Abbreviate"/>
-    </p>
-    <br/>
-    <br/>
-
-    <p>Copy the link below. (The link should appear after abbreviation)</p>
-    <p>
-      <a id="abbr-link" href=""></a>
+      <input type="text" id="user_url" name="user_url" size="50" maxlength="256" 
+            placeholder="Paste your URL here"/> &nbsp; &nbsp;
+      <input type="button" id="abbr" name="abbr" value="Abbreviate"/>
+      <br/>    
+      <br/>    
+      <input type="text" id="abbr_url" name="user_url" size="50" maxlength="256" 
+            placeholder="Abbriviated URL would appear here"/> &nbsp; &nbsp;      
     </p>
     <br/>
     <br/>
     <br/>
     <div th:include="footer::copy">&copy; 2016 Brief</div>
-    <br/>
-    <br/>
     <br/>
   </body>
 
