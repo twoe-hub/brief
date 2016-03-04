@@ -18,13 +18,14 @@ public class KeyGeneratrTest {
     Instant start = Instant.now();
     List<String> keys = new ArrayList<>();
     for (int i = 0; i < 100000; i++) {
-      String s = KEY_GEN.generateKey();
-      if (keys.contains(s)) {
+      String key = KEY_GEN.generateKey();
+      System.out.println("key: " + key);
+      if (keys.contains(key)) {
         Assert.fail("Duplicate generated");
-      } else if(s.length() > 8) {
+      } else if(key.length() > 8) {
         Assert.fail("Too large");
       } else {
-        keys.add(s);
+        keys.add(key);
       }
     }
     

@@ -27,7 +27,7 @@ public enum KeyGeneratr {
     int exponent = 1;
     
     long remaining = value;
-    while (true) {
+    while (remaining != 0L) {
       long a = (long) Math.pow(BASE, exponent);
       long b = remaining % a;
       long c = (long) Math.pow(BASE, exponent - 1);
@@ -35,9 +35,6 @@ public enum KeyGeneratr {
 
       seq.add(DIC_62[d]);
       remaining = remaining - b;
-
-      if (remaining == 0L) 
-        break;
 
       exponent++;
     }
