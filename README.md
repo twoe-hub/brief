@@ -1,2 +1,2 @@
 # brief
-A service to shorten URLs.
+A service, https://abbr.herokuapp.com/, to shorten URLs.
